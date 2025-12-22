@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.p2p.controller.AddFriendController"
+      spacing="14"
+      prefWidth="420"
+      style="-fx-background-color:white; -fx-padding:20;">
+
+    <!-- ================= HEADER ================= -->
+    <HBox alignment="CENTER_LEFT">
+        <Label text="Add Friend"
+               style="-fx-font-size:18; -fx-font-weight:bold;"
+               HBox.hgrow="ALWAYS"/>
+        <Button text="✕"
+                onAction="#close"
+                style="-fx-background-color:transparent;"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- ================= SEARCH ================= -->
+    <Label text="Online peers (LAN)"/>
+
+    <TextField fx:id="searchField"
+               promptText="Search by name or peer ID"/>
+
+    <!-- ================= PEER LIST ================= -->
+    <ListView fx:id="peerListView"
+              prefHeight="220"/>
+
+    <!-- ================= SELECTED PEER ID ================= -->
+    <Label text="Selected Peer ID"/>
+    <TextField fx:id="peerIdField"
+               editable="false"
+               promptText="Select a peer to auto-fill ID"/>
+
+    <!-- ================= BUTTONS ================= -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel"
+                onAction="#close"/>
+
+        <Button text="Send Friend Request"
+                onAction="#sendRequest"
+                style="-fx-background-color:#0084ff; -fx-text-fill:white;"/>
+    </HBox>
+
+</VBox>

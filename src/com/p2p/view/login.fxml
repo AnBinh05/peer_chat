@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane prefWidth="420" prefHeight="550"
+            style="-fx-background-color: #1e1e1e;"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.p2p.controller.LoginController">
+
+    <VBox alignment="CENTER" spacing="20"
+          AnchorPane.topAnchor="40"
+          AnchorPane.leftAnchor="40"
+          AnchorPane.rightAnchor="40">
+
+        <!-- Logo -->
+        <ImageView fitWidth="120" preserveRatio="true">
+            <image>
+                <!-- ĐÚNG ĐƯỜNG DẪN: nằm trong /resources/com/p2p/view/img/logo.png -->
+                <Image url="@img/logo.png" />
+            </image>
+        </ImageView>
+
+        <Label text="PeerTalk Login"
+               style="-fx-text-fill: white;
+                      -fx-font-size: 26px;
+                      -fx-font-weight: bold;" />
+
+        <!-- Username -->
+        <TextField fx:id="usernameField"
+                   promptText="Username"
+                   prefWidth="260"
+                   style="-fx-background-radius: 10;
+                          -fx-text-fill: white;
+                          -fx-background-color: #2e2e2e;
+                          -fx-font-size: 15px;" />
+
+        <!-- Password -->
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       prefWidth="260"
+                       style="-fx-background-radius: 10;
+                              -fx-text-fill: white;
+                              -fx-background-color: #2e2e2e;
+                              -fx-font-size: 15px;" />
+
+        <!-- Error -->
+        <Label fx:id="errorLabel"
+               alignment="CENTER"
+               style="-fx-text-fill: #ff5252;
+                      -fx-font-size: 14px;" />
+
+        <!-- Login Button -->
+        <Button text="Login"
+                onAction="#onLogin"
+                style="-fx-background-color: #2979ff;
+                       -fx-background-radius: 10;
+                       -fx-text-fill: white;
+                       -fx-font-size: 17px;"
+                prefWidth="180" />
+
+        <!-- Register Button -->
+        <Button text="Create Account"
+                onAction="#onRegister"
+                style="-fx-background-color: #4CAF50;
+                       -fx-background-radius: 10;
+                       -fx-text-fill: white;
+                       -fx-font-size: 16px;"
+                prefWidth="180" />
+
+    </VBox>
+
+</AnchorPane>
