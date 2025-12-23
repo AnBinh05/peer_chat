@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.p2p.controller.MainController"
+            prefHeight="800" prefWidth="1200"
+            style="-fx-background-color: white;">
+
+    <!-- ================= LEFT ================= -->
+    <left>
+        <VBox prefWidth="360"
+              style="-fx-background-color: white;
+                     -fx-border-color: #e4e6eb;
+                     -fx-border-width: 0 1 0 0;">
+
+            <!-- ===== HEADER (MERGED) ===== -->
+            <HBox alignment="CENTER_LEFT" spacing="10"
+                  style="-fx-border-color:#e4e6eb;
+                         -fx-border-width:0 0 1 0;">
+                <padding>
+                    <Insets top="16" left="20" right="20" bottom="16"/>
+                </padding>
+
+                <Label text="Chats"
+                       style="-fx-font-size:24;
+                              -fx-font-weight:bold;"
+                       HBox.hgrow="ALWAYS"/>
+
+                <!-- ➕ ADD FRIEND -->
+                <Button fx:id="addFriendButton"
+                        text="➕"
+                        prefWidth="36" prefHeight="36"
+                        style="-fx-background-color:#f0f2f5;
+                               -fx-background-radius:18;
+                               -fx-cursor:hand;"
+                        onAction="#openAddFriendDialog"/>
+
+                <!-- 👥 CREATE GROUP -->
+                <Button fx:id="createGroupButton"
+                        text="👥"
+                        prefWidth="36" prefHeight="36"
+                        style="-fx-background-color:#f0f2f5;
+                               -fx-background-radius:18;
+                               -fx-cursor:hand;"
+                        onAction="#openCreateGroupDialog"/>
+
+                <!-- ⚙ SETTINGS -->
+                <Button fx:id="settingsButton"
+                        prefWidth="36" prefHeight="36"
+                        style="-fx-background-color:#f0f2f5;
+                               -fx-background-radius:18;
+                               -fx-cursor:hand;"
+                        onAction="#openSettings">
+                    <graphic>
+                        <ImageView fx:id="settingsIcon"
+                                   fitWidth="20" fitHeight="20"/>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <!-- ===== SEARCH ===== -->
+            <HBox style="-fx-padding:12;">
+                <TextField fx:id="searchField"
+                           promptText="Search Messenger"
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- ===== CONVERSATION LIST ===== -->
+            <ListView fx:id="conversationListView"
+                      VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </left>
+
+    <!-- ================= CENTER ================= -->
+    <center>
+        <BorderPane>
+
+            <!-- ===== TOP HEADER ===== -->
+            <top>
+                <HBox alignment="CENTER_LEFT" spacing="12"
+                      style="-fx-border-color:#e4e6eb;
+                             -fx-border-width:0 0 1 0;">
+                    <padding>
+                        <Insets top="12" left="16" right="16" bottom="12"/>
+                    </padding>
+
+                    <VBox spacing="2" HBox.hgrow="ALWAYS">
+                        <Label fx:id="chatHeaderName"
+                               text="Select a chat"
+                               style="-fx-font-weight:bold;"/>
+                        <Label fx:id="chatHeaderStatus"
+                               text="Active now"
+                               style="-fx-text-fill:#31a24c;"/>
+                    </VBox>
+
+                    <Button fx:id="callButton">
+                        <graphic>
+                            <ImageView fx:id="callIcon"
+                                       fitWidth="20" fitHeight="20"/>
+                        </graphic>
+                    </Button>
+
+                    <Button fx:id="videoCallButton">
+                        <graphic>
+                            <ImageView fx:id="videoIcon"
+                                       fitWidth="20" fitHeight="20"/>
+                        </graphic>
+                    </Button>
+
+                    <Button fx:id="infoButton"
+                            onAction="#showConversationInfo">
+                        <graphic>
+                            <ImageView fx:id="infoIcon"
+                                       fitWidth="20" fitHeight="20"/>
+                        </graphic>
+                    </Button>
+                </HBox>
+            </top>
+
+            <!-- ===== CHAT AREA ===== -->
+            <center>
+                <ScrollPane fx:id="chatScrollPane"
+                            fitToWidth="true">
+                    <content>
+                        <VBox fx:id="chatMessagesArea"
+                              spacing="6"
+                              style="-fx-padding:16;"/>
+                    </content>
+                </ScrollPane>
+            </center>
+
+            <!-- ===== INPUT ===== -->
+            <bottom>
+                <HBox spacing="8"
+                      alignment="CENTER"
+                      style="-fx-border-color:#e4e6eb;
+                             -fx-border-width:1 0 0 0;">
+                    <padding>
+                        <Insets top="12" left="16" right="16" bottom="12"/>
+                    </padding>
+
+                    <Button onAction="#chooseFile">
+                        <graphic>
+                            <ImageView fx:id="attachIcon"
+                                       fitWidth="22" fitHeight="22"/>
+                        </graphic>
+                    </Button>
+
+                    <Button onAction="#chooseImage">
+                        <graphic>
+                            <ImageView fx:id="imageIcon"
+                                       fitWidth="22" fitHeight="22"/>
+                        </graphic>
+                    </Button>
+
+                    <Button onAction="#openEmojiPicker">
+                        <graphic>
+                            <ImageView fx:id="emojiIcon"
+                                       fitWidth="22" fitHeight="22"/>
+                        </graphic>
+                    </Button>
+
+                    <TextArea fx:id="messageInput"
+                              HBox.hgrow="ALWAYS"
+                              prefRowCount="1"/>
+
+                    <Button fx:id="sendButton"
+                            style="-fx-background-color:#0084ff;
+                                   -fx-background-radius:18;">
+                        <graphic>
+                            <ImageView fx:id="sendIcon"
+                                       fitWidth="18" fitHeight="18"/>
+                        </graphic>
+                    </Button>
+                </HBox>
+            </bottom>
+
+        </BorderPane>
+    </center>
+</BorderPane>

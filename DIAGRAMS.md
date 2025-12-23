@@ -629,3 +629,6 @@ sequenceDiagram
 3. **Message Types**: TEXT, IMAGE, FILE_META, GROUP_TEXT, FRIEND_REQUEST, etc.
 4. **Signal Messages**: Điều khiển hệ thống (friend, group, recall, etc.)
 
+
+
+

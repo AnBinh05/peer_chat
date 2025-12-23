@@ -1,0 +1,73 @@
+╔══════════════════════════════════════════════════════════════╗
+║         HƯỚNG DẪN CHẠY ỨNG DỤNG PEERTALK - NHANH NHẤT        ║
+╚══════════════════════════════════════════════════════════════╝
+
+📌 CÁCH NHANH NHẤT (3 BƯỚC):
+
+┌─────────────────────────────────────────────────────────────┐
+│ BƯỚC 1: SETUP DATABASE                                      │
+└─────────────────────────────────────────────────────────────┘
+
+Mở PowerShell hoặc CMD, chạy:
+
+    mysql -u root -p < database_setup.sql
+
+(Nhập password MySQL nếu có, nếu không có password thì Enter)
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ BƯỚC 2: CHẠY ỨNG DỤNG                                       │
+└─────────────────────────────────────────────────────────────┘
+
+Cách 1: Dùng script (DỄ NHẤT)
+    RUN_ME.bat
+
+Cách 2: Dùng Maven
+    mvn javafx:run
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ BƯỚC 3: SỬ DỤNG                                              │
+└─────────────────────────────────────────────────────────────┘
+
+1. Cửa sổ Login sẽ mở
+2. Nhập username và password
+3. Click "Register" để tạo tài khoản mới
+4. Sau đó đăng nhập
+
+
+╔══════════════════════════════════════════════════════════════╗
+║                    ⚠️ LƯU Ý QUAN TRỌNG                       ║
+╚══════════════════════════════════════════════════════════════╝
+
+✅ PHẢI DÙNG: mvn javafx:run
+❌ KHÔNG DÙNG: java -jar hoặc java com.p2p.P2PApplication
+
+
+╔══════════════════════════════════════════════════════════════╗
+║                    ❌ NẾU GẶP LỖI                            ║
+╚══════════════════════════════════════════════════════════════╝
+
+Lỗi "JavaFX runtime components are missing"
+→ Dùng: mvn javafx:run (KHÔNG dùng java -jar)
+
+Lỗi "Access denied for user 'root'"
+→ Mở file: src/main/java/com/p2p/db/Database.java
+→ Sửa password MySQL
+
+Lỗi "Unknown database 'peertalk'"
+→ Chạy lại: mysql -u root -p < database_setup.sql
+
+
+╔══════════════════════════════════════════════════════════════╗
+║              📖 HƯỚNG DẪN CHI TIẾT                           ║
+╚══════════════════════════════════════════════════════════════╝
+
+Xem file: HUONG_DAN_CHAY.md
+
+
+╔══════════════════════════════════════════════════════════════╗
+║                    🎉 CHÚC BẠN THÀNH CÔNG!                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+
