@@ -63,25 +63,30 @@ graph TB
 
 ```mermaid
 graph TB
-    User[👤 User]
+    User((👤 User))
     
-    UC1[Đăng ký]
-    Ext1[Username đã tồn tại]
-    Inc1[Validate input]
-    Inc2[Tạo peerId]
-    Inc3[Lưu vào Database]
+    subgraph System["P2P Chat & Voice Application"]
+        direction TB
+        UC1((Đăng ký))
+        Ext1((Username đã tồn tại))
+        Inc1((Validate input))
+        Inc2((Tạo peerId))
+        Inc3((Lưu vào Database))
+    end
     
-    User --> UC1
-    UC1 -.include.-> Inc1
-    UC1 -.include.-> Inc2
-    UC1 -.include.-> Inc3
-    Ext1 -.extend.-> UC1
+    User -.-> UC1
+    UC1 -.->|<<include>>| Inc1
+    UC1 -.->|<<include>>| Inc2
+    UC1 -.->|<<include>>| Inc3
+    Ext1 -.->|<<extend>>| UC1
     
-    style UC1 fill:#E1F5FF
-    style Ext1 fill:#FFE1E1
-    style Inc1 fill:#F0F0F0
-    style Inc2 fill:#F0F0F0
-    style Inc3 fill:#F0F0F0
+    style User fill:#FFFFFF,stroke:#000000,stroke-width:2px
+    style UC1 fill:#FFFFFF,stroke:#000000,stroke-width:2px
+    style Ext1 fill:#FFFFFF,stroke:#000000,stroke-width:2px
+    style Inc1 fill:#FFFFFF,stroke:#000000,stroke-width:2px
+    style Inc2 fill:#FFFFFF,stroke:#000000,stroke-width:2px
+    style Inc3 fill:#FFFFFF,stroke:#000000,stroke-width:2px
+    style System fill:#E6F3FF,stroke:#000000,stroke-width:3px
 ```
 
 **Mô tả:**
